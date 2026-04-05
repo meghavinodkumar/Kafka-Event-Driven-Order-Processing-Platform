@@ -1,0 +1,32 @@
+{
+  "name": "kafka-order-platform",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev:api": "tsx watch src/api.ts",
+    "dev:outbox": "tsx watch src/workers/outbox-publisher.ts",
+    "dev:payment": "tsx watch src/workers/payment-consumer.ts",
+    "dev:inventory": "tsx watch src/workers/inventory-consumer.ts",
+    "dev:notification": "tsx watch src/workers/notification-consumer.ts",
+    "start:api": "node dist/api.js",
+    "build": "tsup src --format esm --dts --clean",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@fastify/cors": "^11.0.0",
+    "@fastify/helmet": "^13.0.0",
+    "dotenv": "^16.4.5",
+    "fastify": "^5.2.1",
+    "kafkajs": "^2.2.4",
+    "pg": "^8.13.1",
+    "pino": "^9.14.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsup": "^8.3.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
